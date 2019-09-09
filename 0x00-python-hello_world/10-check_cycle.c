@@ -12,6 +12,8 @@ int check_cycle(listint_t *list)
 	listint_t *aux = list;
 	int check_list = 1;
 
+	if (!list)
+		return (check_list = 0);
 	while (list)
 	{
 		if (list->next == NULL)
