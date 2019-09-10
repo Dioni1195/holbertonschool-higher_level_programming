@@ -9,21 +9,17 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *aux = list;
-	int check_list = 1;
+	listint_t *tmp1 = list, *tmp2 = list;
+	int check_list = 0;
 
 	if (!list)
 		return (check_list = 0);
-	while (list)
+	while (tmp2 != NULL && tmp2->next != NULL)
 	{
-		if (list->next == NULL)
-		{
-			check_list = 0;
-			break;
-		}
-		else if (list->next == aux)
-			break;
-		list = list->next;
+		tmp1 = tmp1->next;
+		tmp2 = tmp2->next->next;
+		if (tmp1 == tmp2)
+			return (check_list = 1);
 	}
 	return (check_list);
 }
