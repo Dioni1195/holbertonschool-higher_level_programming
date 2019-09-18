@@ -8,11 +8,10 @@ int is_palindrome(listint_t **head)
 {
 	int len, i = 0, j;
 	char buff[1024];
-	listint_t *aux;
+	listint_t *aux = *head;
 
-	if (!head || !*head || !(*head)->next)
+	if (!head || !*head || !aux->next)
 		return (1);
-	aux = *head;
 	while (aux)
 	{
 		buff[i] = (char)aux->n;
