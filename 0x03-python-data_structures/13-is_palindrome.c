@@ -6,7 +6,7 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int len, i = 0, j, buff[1024];
+	int len, i = 0, buff[1024];
 	listint_t *aux = *head;
 
 	if (!head || !*head || !aux->next)
