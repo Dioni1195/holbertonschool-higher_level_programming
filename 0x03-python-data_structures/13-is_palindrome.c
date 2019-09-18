@@ -18,7 +18,7 @@ int is_palindrome(listint_t **head)
 		aux = aux->next;
 	}
 	len = i - 1;
-	for (ini = 0; i <= len; ini++)
+	for (ini = 0; ini <= len; ini++)
 	{
 		if (buff[ini] != buff[len])
 			return (0);
