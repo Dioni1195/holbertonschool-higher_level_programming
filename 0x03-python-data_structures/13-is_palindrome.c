@@ -1,23 +1,5 @@
 #include "lists.h"
 /**
-*  list_len- Calculate the lenght of a string
-* @h: The list passed
-*
-* Return: An unsigned int that is the count of nodes
-* On error, nothing
-*/
-size_t list_len(const listint_t *h)
-{
-	size_t count = 0;
-
-	while (h)
-	{
-		h = h->next;
-		count++;
-	}
-	return (count);
-}
-/**
  * is_palindrome - Verify if a list is palidrome
  * @head: pointer to list to be verified
  * Return: on success 1, o failure 0
@@ -37,9 +19,9 @@ int is_palindrome(listint_t **head)
 		i++;
 		aux = aux->next;
 	}
-	len = (int)list_len(*head);
-	j = len - 1;
-	for (i = 0; i != len / 2; i++)
+	len = i - 1;
+	j = len;
+	for (i = 0; i >= len / 2; i++)
 	{
 		if (buff[i] != buff[j])
 			return (0);
