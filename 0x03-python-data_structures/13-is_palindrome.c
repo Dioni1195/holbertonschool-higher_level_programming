@@ -21,7 +21,7 @@ int is_palindrome(listint_t **head)
 	}
 	len = i - 1;
 	j = len;
-	for (i = 0; i >= len / 2; i++)
+	for (i = 0; i <= len; i++)
 	{
 		if (buff[i] != buff[j])
 			return (0);
