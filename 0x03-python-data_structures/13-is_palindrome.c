@@ -6,7 +6,7 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int len, i = 0, ini, buff[9999];
+	int len, i = 0, ini, buff[1024];
 	listint_t *aux = *head;
 
 	if (!head || !*head || !aux->next)
@@ -18,11 +18,12 @@ int is_palindrome(listint_t **head)
 		aux = aux->next;
 	}
 	len = i - 1;
-	for (ini = 0; ini <= len; ini++)
+	j = len;
+	for (ini = 0; ini <= (len / 2); ini++)
 	{
-		if (buff[ini] != buff[len])
+		if (buff[ini] != buff[j])
 			return (0);
-		len--;
+		j--;
 	}
 	return (1);
 }
