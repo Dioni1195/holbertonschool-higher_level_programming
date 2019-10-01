@@ -1,8 +1,23 @@
 #!/usr/bin/python3
+"""This module contains the class Square
+"""
 class Square:
+    """Class square to make a matrix
+       Args:
+        __size (int): The size of the square
+        __position (tuple): Th position to print the matrix
+       Attributes:
+        __size (int): The size of the square
+        __position (tuple): Th position to print the matrix
+
+    """
+    def __init__(self, __size=0, __position=(0, 0)):
+            self.size = __size
+            self.position = __position
 
     @property
     def size(self):
+            """Property Size, the size of the square"""
             return self.__size
 
     @size.setter
@@ -15,6 +30,7 @@ class Square:
 
     @property
     def position(self):
+            """Property Position, the position to print the square"""
             return self.__position
 
     @position.setter
@@ -26,25 +42,33 @@ class Square:
                         return
             raise TypeError("position must be a tuple of 2 positive integers")
 
-    def __init__(self, __size=0, __position=(0, 0)):
-            self.size = __size
-            self.position = __position
-
     def area(self):
-            return self.__size ** 2
+        """It calcule the area of a square
+
+            Returns:
+                The area of square, an int.
+
+        """
+        return self.__size ** 2
 
     def my_print(self):
-            size = self.__size
-            pos = self.__position
-            if size == 0:
+        """It prints the square.
+
+            Returns:
+                Nothing.
+
+        """
+        size = self.__size
+        pos = self.__position
+        if size == 0:
+            print()
+        else:
+            square = [[" "] * pos[0] + ["#"] * size] * size
+            new_line = pos[1]
+            while new_line > 0:
                 print()
-            else:
-                square = [[" "] * pos[0] + ["#"] * size] * size
-                new_line = pos[1]
-                while new_line > 0:
-                    print()
-                    new_line -= 1
-                for i in square:
-                    for j in i:
-                        print(j, end="")
-                    print()
+                new_line -= 1
+            for i in square:
+                for j in i:
+                    print(j, end="")
+                print()
