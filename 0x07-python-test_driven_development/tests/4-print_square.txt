@@ -1,0 +1,60 @@
+The ``4-print_squar`` module
+======================
+
+Using ``print_square``
+-------------------
+
+This is a text file in reStructuredText format.  First import
+``print_square`` from the ``4-print_square`` module:
+    caso 00 Open the file
+    >>> print_square = __import__('4-print_square').print_square
+
+Now use it:
+
+    Case 01 normal case
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+    Case 02 Pass invalid argument to size
+    >>> print_square(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+    case 03 Pass a negative size
+    >>> print_square(-1)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+    case 04 Pass without arguments
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+    case 05 Pass more than two arguments
+    >>> print_square(2, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+    case 06 Size is zero
+    >>> print_square(0)
+
+    case 07 size is float and negative
+    >>> print_square(-1.6)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+

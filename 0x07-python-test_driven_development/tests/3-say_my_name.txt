@@ -1,0 +1,49 @@
+The ```3-say_my_name` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+This is a text file in reStructuredText format.  First import
+``say_my_name`` from the ``3-say_my_name`` module:
+    caso 00 Open the file
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now use it:
+
+    Case 01 normal case
+    >>> say_my_name("Dionisio", "Arango")
+    My name is Dionisio Arango
+
+    Case 02 first_name different a string
+    >>> say_my_name(None, "Perez")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    case 03 second_name different a string
+    >>> say_my_name("Hello World",123)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    case 04 Only one argument
+    >>> say_my_name("Dionisio")
+    My name is Dionisio 
+
+    case 05 Pass without arguments
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    case 06 Pass more than two arguments
+    >>> say_my_name("Dionisio", "Arango", "Rojas")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    case 07 Pass first_name like empty string
+    >>> say_my_name("", "Arango")
+    My name is  Arango
+
