@@ -4,8 +4,17 @@
 
 
 def matrix_divided(matrix, div):
-    size = len(matrix[0])
-    if isinstance(div, (int, float)) == False:
+    """Function that divide each element of a matrix by div
+    """
+    msg_list = "matrix must be a matrix (list of lists) of integers/floats"
+    msg_row = "Each row of the matrix must have the same size"
+    if matrix and isinstance(matrix[0], list):
+        size = len(matrix[0])
+    else:
+        raise TypeError(msg_list)
+    if (matrix == [[]] or matrix == []) or size == 0:
+        raise TypeError(msg_list)
+    if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
@@ -14,12 +23,13 @@ def matrix_divided(matrix, div):
             if isinstance(i, list):
                 for j in i:
                     if len(i) != size:
-                            raise TypeError("Each row of the matrix must have the same size")
-                    if type(j) is not int and type(j) is not float:
-                            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                            raise TypeError(msg_row)
+                    if not isinstance(j, (int, float)):
+                            raise TypeError(msg_list)
             else:
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError(msg_list)
     else:
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    new_matrix = list(map(lambda x: list(map(lambda y: round(y / div, 2), x)), matrix))
+        raise TypeError(msg_list)
+    new_matrix = list(map(lambda x: list(map(
+        lambda y: round(y / div, 2), x)), matrix))
     return new_matrix
