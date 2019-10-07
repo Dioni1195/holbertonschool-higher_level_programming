@@ -11,11 +11,17 @@ class Rectangle:
        Attributes:
        __width(int): The width of the rectangle
        __height(int): The height of the rectangle
+       number_of_instances(int) = The number of instances of the class
+       print_symbol(any) = Th symbol to represent the rectangle
 
      """
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -57,7 +63,7 @@ class Rectangle:
         """This is the magic method to return a printeable method"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        rec = ["#" * self.__width + '\n'] * self.__height
+        rec = [str(self.print_symbol) * self.__width + '\n'] * self.__height
         str_rec = ""
         for i in rec:
             str_rec += str(i)
@@ -68,3 +74,35 @@ class Rectangle:
            replicates the call of the class
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """ This is a identificator of a deletion of a instance"""
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
+
+    def bigger_or_equal(rect_1, rect_2):
+        """ This static method compare two rectangles based on area.
+                Args:
+                    rect_1(int) = Area of rectangle 1
+                    rect_2(int) = Area of rectangle 2
+                Return: The biggest rectangle
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() == rect_2.area():
+            return rect_1
+        if rect_1.area() > rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """This is a class method that return a new rectangle
+           with width == height == size
+           Args:
+            size(int) = The width and height of the new instance
+        """
+        return cls(size, size)
