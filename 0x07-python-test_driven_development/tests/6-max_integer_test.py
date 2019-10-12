@@ -12,6 +12,10 @@ class TestMaxInteger(unittest.TestCase):
         """ Test normal arguments"""
         self.assertAlmostEqual(max_integer([2, 100, -1, 12]), 100)
 
+    def test_one_arg(self):
+        """ Test one argument"""
+        self.assertAlmostEqual(max_integer([12]), 12)
+
     def test_no_args(self):
         """ Test without arguments"""
         self.assertAlmostEqual(max_integer(), None)
