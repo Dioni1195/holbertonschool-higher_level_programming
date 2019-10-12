@@ -96,5 +96,5 @@ Now use it:
     ZeroDivisionError: division by zero
 
     Case 16
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float(inf))
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
     [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
