@@ -13,11 +13,11 @@ def read_lines(filename="", nb_lines=0):
     with open(filename, 'r', encoding='utf-8') as r_file:
         num_lines = number_of_lines(filename)
         if nb_lines <= 0 or nb_lines >= num_lines:
-            print(r_file.read())
+            print(r_file.read(), end="")
         else:
             lines = r_file.readlines()
             i = 0
             while nb_lines > 0:
-                print(lines[i])
+                print(lines[i], end="")
                 i += 1
                 nb_lines -= 1
