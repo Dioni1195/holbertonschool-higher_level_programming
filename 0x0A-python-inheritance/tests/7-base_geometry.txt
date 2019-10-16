@@ -1,0 +1,50 @@
+
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	
+	Case 1
+        >>> new_class = BaseGeometry()
+
+        >>> print(new_class.area())
+        Traceback (most recent call last):
+            ...
+        Exception: area() is not implemented
+
+        >>> new_class.integer_validator("name", "Jhon")
+        Traceback (most recent call last):
+            ...
+        TypeError: name must be an integer
+
+        >>> new_class.integer_validator("age", 0)
+        Traceback (most recent call last):
+            ...
+        ValueError: age must be greater than 0
+
+        >>> new_class.integer_validator("distance", -89)
+        Traceback (most recent call last):
+            ...
+        ValueError: distance must be greater than 0
+
+        >>> new_class.integer_validator("name", 23)
+        
+        >>> new_class.integer_validator(12, 0)
+        Traceback (most recent call last):
+            ...
+        ValueError: 12 must be greater than 0
+
+        >>> new_class.integer_validator(12)
+        Traceback (most recent call last):
+            ...
+        TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+        >>> new_class.integer_validator()
+        Traceback (most recent call last):
+            ...
+        TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+        >>> new_class.integer_validator(12, 87, 90)
+        Traceback (most recent call last):
+            ...
+        TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+        >>> new_class.integer_validator(12, 87)
