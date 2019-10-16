@@ -25,7 +25,7 @@ class Student:
         if attrs is None:
             return self.__dict__
         new_dict = dict()
-        for verify in self.__dict__.keys():
-            if verify in attrs:
-                new_dict[verify] = verify
+        for verify in attrs:
+            if verify in self.__dict__.keys():
+                new_dict[verify] = self.__dict__[verify]
         return new_dict
