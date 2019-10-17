@@ -12,4 +12,4 @@ def append_after(filename="", search_string="", new_string=""):
             if search.find(search_string) != -1:
                 appended_str.append(new_string)
         with open(filename, 'w', encoding='utf-8') as w_file:
-            r_file.writelines(appended_str)
+            w_file.writelines(appended_str)
