@@ -101,10 +101,9 @@ class Rectangle(Base):
         for d_y in range(y):
             print()
         for h in range(height):
-            print(" " * x, end="")
-            for w in range(width):
-                print("#", end="")
-            print()
+            if x != 0:
+                print(" " * x, end="")
+            print("#" * width)
 
     def __str__(self):
         """ This method return the str representation of the instance """
@@ -116,18 +115,26 @@ class Rectangle(Base):
         hei = self.height
         return "[{}] ({}) {}/{} - {}/{}".format(name, id, x, y, wid, hei)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ This method update the the attributes of the
         instance
         Args:
         *args: The arguments passed by the user
 
         """
-        try:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
-        except IndexError:
-            pass
+        if len(args) != 0:
+            try:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+            except IndexError:
+                pass
+        else:
+            for i in kwargs.keys():
+                try:
+                    getattr(self, i)
+                except Exception as er:
+                    raise er
+                setattr(self, i, kwargs[i])
