@@ -115,3 +115,19 @@ class Rectangle(Base):
         wid = self.width
         hei = self.height
         return "[{}] ({}) {}/{} - {}/{}".format(name, id, x, y, wid, hei)
+
+    def update(self, *args):
+        """ This method update the the attributes of the
+        instance
+        Args:
+        *args: The arguments passed by the user
+
+        """
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
