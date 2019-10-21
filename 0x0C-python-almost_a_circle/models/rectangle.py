@@ -90,13 +90,23 @@ class Rectangle(Base):
 
     def area(self):
         """ This method calculate the area of the rectangle """
-        return self.__width * self.__height
+        return self.width * self.height
 
     def display(self):
         """ This method prints the instance in the stdout """
-        width = self.__width
-        height = self.__height
+        width = self.width
+        height = self.height
         for h in range(height):
             for w in range(width):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """ This method return the str representation of the instance """
+        name = self.__class__.__name__
+        id = self.id
+        x = self.x
+        y = self.y
+        wid = self.width
+        hei = self.height
+        return "[{}] ({}) {}/{} - {}/{}".format(name, id, x, y, wid, hei)
