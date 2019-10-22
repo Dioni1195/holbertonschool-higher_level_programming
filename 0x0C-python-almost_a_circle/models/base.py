@@ -30,11 +30,9 @@ class Base:
         """
         new_list_obj = []
         classname = "{}{}".format(cls.__name__, ".json")
-        if list_objs is None:
-            json.dump([], classname)
-        else:
+        if list_objs:
             new_list_obj = [i.to_dictionary() for i in list_objs]
-            with open(classname, 'w', encoding='utf-8') as n_file:
+        with open(classname, 'w', encoding='utf-8') as n_file:
                 n_file.write(cls.to_json_string(new_list_obj))
 
     @staticmethod
