@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ This module containtes the class base """
+import json
 
 
 class Base:
@@ -20,3 +21,10 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+            """ This method converts a list to a JSON """
+            if list_dictionaries is None or len(list_dictionaries) == 0:
+                return []
+            else:
+                return json.dumps(list_dictionaries)
