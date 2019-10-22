@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This module containtes the class base """
 import json
+import csv
 
 
 class Base:
@@ -83,3 +84,33 @@ class Base:
                 return json.dumps([])
             else:
                 return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ his class method save a CSV to a file
+        args:
+        list_objs(list): List of instances who inherits of Base
+        """
+        new_list_obj = []
+        classname = "{}{}".format(cls.__name__, ".csv")
+        if list_objs:
+            new_list_obj = [i.to_dictionary() for i in list_objs]
+        with open(classname, 'w', encoding='utf-8') as n_file:
+                n_file.write(cls.to_json_string(new_list_obj))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Return a list of instances """
+        classname = "{}{}".format(cls.__name__, ".csv")
+        try:
+            with open(classname, 'r', encoding='utf-8') as n_file:
+                r_file = n_file.read()
+                list_dict = []
+                lt_obj = []
+                if r_file or len(r_file) != 0:
+                    list_dict = cls.from_json_string(r_file)
+                    lt_obj = [cls.create(**dict_obj) for dict_obj in list_dict]
+                    return lt_obj
+                return list_dict
+        except Exception:
+            return []
