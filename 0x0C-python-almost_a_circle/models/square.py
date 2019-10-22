@@ -66,5 +66,7 @@ class Square(Rectangle):
         """ Return the dictionary representation of
             the instances
         """
-        dict_squ = {'x': self.x, 'y': self.y, 'id': self.id, 'size': self.height}
+        dict_squ = {
+            'x': self.x, 'y': self.y,
+            'id': self.id, 'size': self.height}
         return dict_squ

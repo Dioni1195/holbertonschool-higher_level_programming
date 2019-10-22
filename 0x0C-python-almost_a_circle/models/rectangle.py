@@ -143,5 +143,7 @@ class Rectangle(Base):
         """ Return the dictionary representation of
             the instances
         """
-        dict_rect = {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height, 'width': self.width}
+        dict_rect = {
+            'x': self.x, 'y': self.y, 'id': self.id,
+            'height': self.height, 'width': self.width}
         return dict_rect
