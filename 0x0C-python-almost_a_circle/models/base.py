@@ -66,7 +66,7 @@ class Base:
             r_file = n_file.read()
             list_dict = []
             list_obj = []
-            if r_file or len(r_file) != 0:
+            if r_file or len(r_file) != 0 or r_file != []:
                 list_dict = cls.from_json_string(r_file)
                 list_obj = [cls.create(**dict_obj) for dict_obj in list_dict]
                 return list_obj
