@@ -45,6 +45,16 @@ class Base:
             new_list = json.loads(json_string)
         return new_list
 
+    @classmethod
+    def create(cls, **dictionary):
+        """ This class method creates a instance
+        Args:
+        **dictionary: The arguments
+        """
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
     @staticmethod
     def to_json_string(list_dictionaries):
             """ This method converts a list to a JSON """
