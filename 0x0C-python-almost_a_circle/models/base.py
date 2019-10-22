@@ -66,18 +66,19 @@ class Base:
             with open(classname, 'r', encoding='utf-8') as n_file:
                 r_file = n_file.read()
                 list_dict = []
-                list_obj = []
+                lt_obj = []
                 if r_file or len(r_file) != 0:
                     list_dict = cls.from_json_string(r_file)
-                    list_obj = [cls.create(**dict_obj) for dict_obj in list_dict]
-                    return list_obj
+                    lt_obj = [cls.create(**dict_obj) for dict_obj in list_dict]
+                    return lt_obj
                 return list_dict
         except Exception:
             return []
 
     @staticmethod
     def to_json_string(list_dictionaries):
-            """ This method converts a list to a JSON """
+            """This method converts
+            a list to a JSON"""
             if list_dictionaries is None or len(list_dictionaries) == 0:
                 return json.dumps([])
             else:
