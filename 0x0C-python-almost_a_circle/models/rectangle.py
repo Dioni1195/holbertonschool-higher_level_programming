@@ -138,3 +138,9 @@ class Rectangle(Base):
                 except Exception as er:
                     raise er
                 setattr(self, i, kwargs[i])
+
+    def to_dictionary(self):
+        """ Return the dictionary representation of
+            the instances
+        """
+        return self.__dict__
