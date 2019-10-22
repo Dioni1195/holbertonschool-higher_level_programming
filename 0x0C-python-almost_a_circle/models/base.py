@@ -22,6 +22,23 @@ class Base:
         else:
             self.id = id
 
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ This class method save a JSON to a file
+        args:
+        list_objs(list): List of instances who inherits of Base
+        """
+        new_list_obj = []
+        classname = "{}{}".format(cls.__name__, ".json")
+        if list_objs is None:
+            json.dump([], classname)
+        else:
+            new_list_obj = [i.to_dictionary() for i in list_objs]
+        print(classname)
+        print(new_list_obj)
+        
+
+    @staticmethod
     def to_json_string(list_dictionaries):
             """ This method converts a list to a JSON """
             if list_dictionaries is None or len(list_dictionaries) == 0:
