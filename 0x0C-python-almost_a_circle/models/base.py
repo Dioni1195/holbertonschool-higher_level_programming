@@ -62,15 +62,18 @@ class Base:
     def load_from_file(cls):
         """ Return a list of instances """
         classname = "{}{}".format(cls.__name__, ".json")
-        with open(classname, 'r', encoding='utf-8') as n_file:
-            r_file = n_file.read()
-            list_dict = []
-            list_obj = []
-            if r_file or len(r_file) != 0 or r_file != []:
-                list_dict = cls.from_json_string(r_file)
-                list_obj = [cls.create(**dict_obj) for dict_obj in list_dict]
-                return list_obj
-            return list_dict
+        try:
+            with open(classname, 'r', encoding='utf-8') as n_file:
+                r_file = n_file.read()
+                list_dict = []
+                list_obj = []
+                if r_file or len(r_file) != 0:
+                    list_dict = cls.from_json_string(r_file)
+                    list_obj = [cls.create(**dict_obj) for dict_obj in list_dict]
+                    return list_obj
+                return list_dict
+        except Exception:
+            return []
 
     @staticmethod
     def to_json_string(list_dictionaries):
