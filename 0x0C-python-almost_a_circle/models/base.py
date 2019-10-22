@@ -34,7 +34,7 @@ class Base:
             new_list_obj = [i.to_dictionary() for i in list_objs]
         with open(classname, 'w', encoding='utf-8') as n_file:
                 n_file.write(cls.to_json_string(new_list_obj))
-    
+
     @staticmethod
     def from_json_string(json_string):
         """ This static method returns the list of the
