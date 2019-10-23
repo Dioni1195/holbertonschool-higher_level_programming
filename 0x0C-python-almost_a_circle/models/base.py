@@ -114,3 +114,55 @@ class Base:
                 return list_dict
         except Exception:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        import turtle
+
+        turt = turtle.Turtle()
+        turt.shape('turtle')
+        turt.speed(6)
+        turt.color("red")
+        for rec in list_rectangles:
+            turt.penup()
+            turt.fd(rec.x)
+            turt.lt(90)
+            turt.fd(rec.y)
+            turt.rt(90)
+            turt.pendown()
+            trut.fd(rec.width)
+            turt.lt(90)
+            turt.fd(rec.height)
+            turt.lt(90)
+            turt.fd(rec.width)
+            turt.lt(90)
+            turt.fd(rec.height)
+            turt.rt(90)
+            turt.penup()
+            turt.fd(rec.y)
+            turt.lt(90)
+            turt.fd(rec.x)
+            turt.lt(90)
+            turt.pendown()
+        turt.color("green")
+        for squ in list_squares:
+            turt.penup()
+            turt.fd(squ.x)
+            turt.lt(90)
+            turt.fd(squ.y)
+            turt.rt(90)
+            turt.pendown()
+            trut.fd(squ.size)
+            turt.lt(90)
+            turt.fd(squ.size)
+            turt.lt(90)
+            turt.fd(squ.size)
+            turt.lt(90)
+            turt.fd(squ.size)
+            turt.rt(90)
+            turt.penup()
+            turt.fd(squ.y)
+            turt.lt(90)
+            turt.fd(squ.x)
+            turt.lt(90)
+            turt.pendown()
