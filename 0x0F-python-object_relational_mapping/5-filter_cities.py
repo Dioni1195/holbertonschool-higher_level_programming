@@ -8,12 +8,16 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host=ht, user=argv[1], passwd=argv[2],
                          db=argv[3], port=3306)
     cur = db.cursor()
-    cur.execute("SELECT cities.id, cities.name, states.name FROM cities\
+    cur.execute("SELECT cities.name FROM cities\
                 INNER JOIN states\
                 ON cities.state_id = states.id\
-                ORDER BY cities.id")
-    states = cur.fetchall()
-    for state in states:
-        print(state)
+                WHERE states.name = %(state)s\
+                ORDER BY cities.id", {'state': argv[4]})
+    cities = cur.fetchall()
+    city_list = []
+    for city in cities:
+        city_list.append(city[0])
+    str_new = ", ".join(city_list)
+    print(str_new)
     cur.close()
     db.close()
