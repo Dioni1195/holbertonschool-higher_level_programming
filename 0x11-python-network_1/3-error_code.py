@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ displays the value of the X-Request-Id variable found in the header """
-import urllib.parse
+import urllib.request
 from sys import argv
 
 
