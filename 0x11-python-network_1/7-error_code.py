@@ -7,6 +7,6 @@ if __name__ == "__main__":
     req = requests.get(argv[1])
     status = req.status_code
     if status >= 400:
-        print('Error code: ', status)
+        print('Error code:', status)
     else:
         print(req.text)
