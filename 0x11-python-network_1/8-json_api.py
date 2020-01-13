@@ -13,6 +13,8 @@ if __name__ == "__main__":
     json = req.json()
     if len(json) == 0:
         print('No result')
+    elif req.headers['Content-Type'] != 'application/json':
+        print('Not a valid JSON')
     else:
         try:
             print('[{}] {}'.format(json['id'], json['name']))
