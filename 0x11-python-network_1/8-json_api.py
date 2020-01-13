@@ -12,7 +12,7 @@ if __name__ == "__main__":
     try:
         req = requests.post('http://0.0.0.0:5000/search_user', data=value)
         json = req.json()
-        if not 'id' in json or 'name' not in json:
+        if 'id' not in json or 'name' not in json:
             print('No result')
         else:
             print('[{}] {}'.format(json['id'], json['name']))
