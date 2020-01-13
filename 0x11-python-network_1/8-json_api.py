@@ -9,14 +9,12 @@ if __name__ == "__main__":
     else:
         let = ""
     value = {'q': let}
-    req = requests.post('http://0.0.0.0:5000/search_user', data=value)
-    json = req.json()
-    if len(json) == 0:
-        print('No result')
-    elif req.headers['Content-Type'] != 'application/json':
-        print('Not a valid JSON')
-    else:
-        try:
+    try:
+        req = requests.post('http://0.0.0.0:5000/search_user', data=value)
+        json = req.json()
+        if not 'id' in json or 'name' not in json:
+            print('No result')
+        else:
             print('[{}] {}'.format(json['id'], json['name']))
-        except Exception:
-            print("Not a valid JSON")
+    except Exception:
+        print("Not a valid JSON")
