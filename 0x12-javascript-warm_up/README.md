@@ -25,5 +25,16 @@
 File Name | Description
 --- | ---
 0-javascript_is_amazing.js | Hello world
-2-arguments.js | 
-
+1-multi_language.js | Three lines
+2-arguments.js | Handle arguments
+3-value_arguments.js | Check the value of args
+4-concat.js | Concatenate two strings
+5-to_integer.js | Parse to int
+6-multi_languages_loop.js | Using loops in an array
+7-multi_c.js | Using loops to do the same thing many times
+8-square.js | Make a square
+9-add.js | Create the add function
+10-factorial.js | Make factorial function
+11-second_biggest.js | Sort an array
+12-object.js | Use an object
+13-add.js | Export a function
