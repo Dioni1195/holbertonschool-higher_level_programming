@@ -3,7 +3,8 @@ const request = require('request');
 const myArgv = process.argv;
 let movies;
 let item;
-let count = 0;
+const listObj = [];
+
 request(myArgv[2], function (error, response, body) {
   if (error) {
     console.error('error:', error);
@@ -11,9 +12,9 @@ request(myArgv[2], function (error, response, body) {
     movies = JSON.parse(body).results;
     for (item of movies) {
       if (item.characters.includes('https://swapi.co/api/people/18/')) {
-        ++count;
+        listObj.push(item);
       }
     }
-    console.log(count);
+    console.log(listObj.length);
   }
 });
