@@ -8,8 +8,8 @@
 ---
 File Name | Description
 --- | ---
-0-readme.js |
-1-writeme.js |
+0-readme.js | Read a file
+1-writeme.js | Write in a file
 2-statuscode.js |
 3-starwars_title.js |
 4-starwars_count.js |
